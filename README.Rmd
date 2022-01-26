@@ -1,0 +1,125 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
+```
+
+# Respostas ao formulário de atividades
+
+Respostas para o formulário de sugestões de atividade da R-Ladies SP em 2022.
+
+## Importação
+
+```{r}
+# URL da Google Sheets que contém as respostas
+# (Vinculada ao Google Forms)
+url <- "https://docs.google.com/spreadsheets/d/1ncSmpBt7WhrYt7rdNxQ6BoirNawrz_58jxef8_G2-v4/"
+
+# Queremos fazer a autenticação usando as chaves em cache
+# usando um email autorizado
+googlesheets4::gs4_auth(email = "milz.bea@gmail.com")
+
+# Importar a forma bruta das respostas
+respostas_bruto <- googlesheets4::read_sheet(url)
+```
+
+## Organização da base 
+```{r}
+# quais são as colunas que temos?
+names(respostas_bruto)
+
+respostas <- respostas_bruto |>
+  # limpar o nome das variáveis:
+  janitor::clean_names() |>
+  # o transmute funciona como a junção de um select, rename, e mutate!
+  dplyr::transmute(
+    carimbo_de_data_hora,
+    preferencia_atividade = quais_tipos_de_atividade_voce_prefere,
+    temas = quais_temas_voce_gostaria_que_fossem_abordados_em_eventos_escolha_ate_5,
+    preferencia_dia_horario = em_quais_dias_e_horarios_voce_prefere_que_as_atividades_acontecam,
+  )
+
+# ver como ficou a base
+dplyr::glimpse(respostas)
+```
+
+## Temas 
+
+```{r}
+respostas |>
+  # selecionar apenas a coluna tema
+  dplyr::select(temas) |>
+  # separar a coluna tema, a cada vírgula
+
+  tidyr::separate(temas,
+    into = paste0("tema_", 1:20),
+    sep = ",",
+    fill = "right"
+  ) |>
+  # transformamos a base para o formato longo
+  tidyr::pivot_longer(
+    cols = tidyselect::everything(),
+    values_drop_na = TRUE,
+    values_to = "tema"
+  ) |>
+  # remove a coluna name, criada na etapa anterior
+  dplyr::select(-name) |>
+  # remover os espaços extras
+  dplyr::mutate(tema = stringr::str_trim(tema)) |>
+  # contar quantas vezes cada tema apareceu
+  # e ordenar de forma decrescente
+  dplyr::count(tema, sort = TRUE) |>
+  # gerar uma tabela
+  knitr::kable(col.names = c("Tema", "Quantidade de respostas"))
+```
+
+
+## Tipo de atividade
+
+```{r}
+# O código é similar ao código para temas
+respostas |>
+  dplyr::select(preferencia_atividade) |>
+  tidyr::separate(preferencia_atividade, into = paste0("atividade_", 1:5), sep = ",", fill = "right") |>
+  tidyr::pivot_longer(cols = tidyselect::everything(), values_drop_na = TRUE, values_to = "atividade") |>
+  dplyr::select(-name) |>
+  dplyr::mutate(atividade = stringr::str_trim(atividade)) |>
+  dplyr::count(atividade, sort = TRUE) |>
+  knitr::kable(col.names = c("Atividade", "Quantidade de respostas"))
+```
+
+
+
+## Dia/horário de preferência
+
+```{r}
+# O código é similar ao código para temas
+respostas |>
+  dplyr::select(preferencia_dia_horario) |>
+  # Aqui rolou uma inconsistência dentre as opções de resposta,
+  # então foi necessário padronizar
+  dplyr::mutate(
+    preferencia_dia_horario = stringr::str_replace_all(
+      preferencia_dia_horario,
+      "Durante a semana, no período noturno",
+      "Durante a semana - noite"
+    )
+  ) |>
+  tidyr::separate(
+    preferencia_dia_horario,
+    into = paste0("diahora_", 1:10), sep = ",", fill = "right"
+  ) |>
+  tidyr::pivot_longer(cols = tidyselect::everything(), values_drop_na = TRUE, values_to = "diahora") |>
+  dplyr::select(-name) |>
+  dplyr::mutate(diahora = stringr::str_trim(diahora)) |>
+  dplyr::count(diahora, sort = TRUE) |>
+  knitr::kable(col.names = c("Dia e horário", "Quantidade de respostas"))
+```
