@@ -51,7 +51,7 @@ respostas <- respostas_bruto |>
 
 # ver como ficou a base
 dplyr::glimpse(respostas)
-#> Rows: 18
+#> Rows: 19
 #> Columns: 4
 #> $ carimbo_de_data_hora    <dttm> 2022-01-25 08:59:37, 2022-01-25 09:19:06, 202…
 #> $ preferencia_atividade   <chr> "Apresentação (com conteúdo expositivo), Works…
@@ -95,24 +95,24 @@ respostas |>
 | Dashboards com Shiny                         |                       8 |
 | Git e GitHub                                 |                       7 |
 | Mapas com R e geom_sf()                      |                       7 |
+| Modelagem Supervisionada (pacote tidymodels) |                       7 |
 | Relatórios com o pacote RMarkdown            |                       7 |
+| Web Scraping                                 |                       7 |
 | Manipulação de dados (pacote dplyr)          |                       6 |
-| Modelagem Supervisionada (pacote tidymodels) |                       6 |
 | Tratamento de erros (pacote purrr)           |                       6 |
 | Visualização de dados (pacote ggplot2)       |                       6 |
-| Web Scraping                                 |                       6 |
+| Acessando APIs                               |                       5 |
 | Arrumação de dados (pacote tidyr)            |                       5 |
 | Criação funções                              |                       5 |
-| Acessando APIs                               |                       4 |
+| Iteração (pacote purrr)                      |                       5 |
 | Análise descritiva de textos                 |                       4 |
 | Criação de pacotes                           |                       4 |
-| Iteração (pacote purrr)                      |                       4 |
 | Modelagem de textos (NLP)                    |                       4 |
 | Pacote data.table                            |                       4 |
 | Introdução ao R                              |                       3 |
+| Processamento paralelo (pacote furrr)        |                       3 |
 | Apresentações com o pacote xaringan          |                       2 |
 | GitHub Actions                               |                       2 |
-| Processamento paralelo (pacote furrr)        |                       2 |
 | Funções estatísticas                         |                       1 |
 | Grafos e Análise de redes sociais            |                       1 |
 
@@ -130,13 +130,14 @@ respostas |>
   knitr::kable(col.names = c("Atividade", "Quantidade de respostas"))
 ```
 
-| Atividade                                                           | Quantidade de respostas |
-|:--------------------------------------------------------------------|------------------------:|
-| Workshop (atividade que tem conteúdo expositivo e conteúdo prático) |                      15 |
-| Apresentação focada em como usar um pacote                          |                      10 |
-| Apresentação (com conteúdo expositivo)                              |                       8 |
-| Mesa redonda (conversa sobre algum tema com pessoas convidadas)     |                       4 |
-| Evento com mais de uma apresentação curta do mesmo tema             |                       1 |
+| Atividade                                                                        | Quantidade de respostas |
+|:---------------------------------------------------------------------------------|------------------------:|
+| Workshop (atividade que tem conteúdo expositivo e conteúdo prático)              |                      16 |
+| Apresentação focada em como usar um pacote                                       |                      11 |
+| Apresentação (com conteúdo expositivo)                                           |                       9 |
+| Mesa redonda (conversa sobre algum tema com pessoas convidadas)                  |                       4 |
+| Evento com mais de uma apresentação curta do mesmo tema                          |                       1 |
+| Evento mensal com uma convidada de fora para falar sobre algum tema relacionado. |                       1 |
 
 ## Dia/horário de preferência
 
@@ -166,8 +167,8 @@ respostas |>
 
 | Dia e horário            | Quantidade de respostas |
 |:-------------------------|------------------------:|
-| Durante a semana - noite |                      13 |
-| Sábado - manhã           |                       9 |
+| Durante a semana - noite |                      14 |
+| Sábado - manhã           |                      10 |
 | Sábado - tarde           |                       6 |
 | Domingo - noite          |                       5 |
 | Domingo - manhã          |                       4 |
