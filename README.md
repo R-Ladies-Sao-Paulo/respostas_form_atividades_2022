@@ -52,7 +52,7 @@ respostas <- respostas_bruto |>
 
 # ver como ficou a base
 dplyr::glimpse(respostas)
-#> Rows: 35
+#> Rows: 39
 #> Columns: 4
 #> $ carimbo_de_data_hora    <dttm> 2022-01-25 08:59:37, 2022-01-25 09:19:06, 202…
 #> $ preferencia_atividade   <chr> "Apresentação (com conteúdo expositivo), Works…
@@ -92,27 +92,27 @@ respostas |>
 
 | Tema                                         | Quantidade de respostas |
 |:---------------------------------------------|------------------------:|
-| Séries temporais                             |                      18 |
-| Dashboards com Shiny                         |                      16 |
-| Manipulação de dados (pacote dplyr)          |                      16 |
-| Visualização de dados (pacote ggplot2)       |                      16 |
-| Git e GitHub                                 |                      15 |
-| Relatórios com o pacote RMarkdown            |                      15 |
-| Mapas com R e geom_sf()                      |                      13 |
-| Modelagem Supervisionada (pacote tidymodels) |                      12 |
-| Tratamento de erros (pacote purrr)           |                      11 |
+| Séries temporais                             |                      21 |
+| Dashboards com Shiny                         |                      19 |
+| Visualização de dados (pacote ggplot2)       |                      18 |
+| Manipulação de dados (pacote dplyr)          |                      17 |
+| Git e GitHub                                 |                      16 |
+| Relatórios com o pacote RMarkdown            |                      16 |
+| Mapas com R e geom_sf()                      |                      15 |
+| Modelagem Supervisionada (pacote tidymodels) |                      14 |
+| Tratamento de erros (pacote purrr)           |                      13 |
+| Criação funções                              |                      12 |
+| Arrumação de dados (pacote tidyr)            |                      11 |
+| Iteração (pacote purrr)                      |                      11 |
 | Web Scraping                                 |                      11 |
-| Arrumação de dados (pacote tidyr)            |                      10 |
-| Criação funções                              |                      10 |
-| Iteração (pacote purrr)                      |                      10 |
-| Acessando APIs                               |                       9 |
-| GitHub Actions                               |                       7 |
+| Acessando APIs                               |                      10 |
+| GitHub Actions                               |                       8 |
+| Apresentações com o pacote xaringan          |                       7 |
+| Criação de pacotes                           |                       7 |
 | Introdução ao R                              |                       7 |
 | Modelagem de textos (NLP)                    |                       7 |
+| Processamento paralelo (pacote furrr)        |                       7 |
 | Análise descritiva de textos                 |                       6 |
-| Processamento paralelo (pacote furrr)        |                       6 |
-| Apresentações com o pacote xaringan          |                       5 |
-| Criação de pacotes                           |                       5 |
 | Pacote data.table                            |                       4 |
 | Testes unitários (pacote testthat)           |                       2 |
 | Ciclo de Vida de Modelos no R                |                       1 |
@@ -138,9 +138,9 @@ respostas |>
 
 | Atividade                                                                        | Quantidade de respostas |
 |:---------------------------------------------------------------------------------|------------------------:|
-| Workshop (atividade que tem conteúdo expositivo e conteúdo prático)              |                      27 |
-| Apresentação focada em como usar um pacote                                       |                      21 |
-| Apresentação (com conteúdo expositivo)                                           |                      18 |
+| Workshop (atividade que tem conteúdo expositivo e conteúdo prático)              |                      31 |
+| Apresentação focada em como usar um pacote                                       |                      25 |
+| Apresentação (com conteúdo expositivo)                                           |                      20 |
 | Evento com mais de uma apresentação curta do mesmo tema                          |                       6 |
 | Mesa redonda (conversa sobre algum tema com pessoas convidadas)                  |                       5 |
 | Evento mensal com uma convidada de fora para falar sobre algum tema relacionado. |                       1 |
@@ -173,10 +173,10 @@ respostas |>
 
 | Dia e horário            | Quantidade de respostas |
 |:-------------------------|------------------------:|
-| Durante a semana - noite |                      24 |
-| Sábado - manhã           |                      19 |
-| Sábado - tarde           |                      15 |
-| Domingo - manhã          |                      10 |
+| Durante a semana - noite |                      27 |
+| Sábado - manhã           |                      20 |
+| Sábado - tarde           |                      16 |
+| Domingo - manhã          |                      11 |
 | Domingo - tarde          |                       9 |
 | Domingo - noite          |                       7 |
-| Sábado - noite           |                       5 |
+| Sábado - noite           |                       6 |
