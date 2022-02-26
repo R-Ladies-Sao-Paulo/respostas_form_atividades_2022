@@ -19,7 +19,6 @@ googlesheets4::gs4_auth(email = "milz.bea@gmail.com")
 
 # Importar a forma bruta das respostas
 respostas_bruto <- googlesheets4::read_sheet(url)
-#> Auto-refreshing stale OAuth token.
 #> ✓ Reading from "Sugestão de atividades - R-Ladies SP (respostas)".
 #> ✓ Range 'Respostas ao formulário 1'.
 ```
@@ -52,7 +51,7 @@ respostas <- respostas_bruto |>
 
 # ver como ficou a base
 dplyr::glimpse(respostas)
-#> Rows: 39
+#> Rows: 58
 #> Columns: 4
 #> $ carimbo_de_data_hora    <dttm> 2022-01-25 08:59:37, 2022-01-25 09:19:06, 202…
 #> $ preferencia_atividade   <chr> "Apresentação (com conteúdo expositivo), Works…
@@ -92,31 +91,31 @@ respostas |>
 
 | Tema                                         | Quantidade de respostas |
 |:---------------------------------------------|------------------------:|
-| Séries temporais                             |                      21 |
-| Dashboards com Shiny                         |                      19 |
-| Visualização de dados (pacote ggplot2)       |                      18 |
-| Manipulação de dados (pacote dplyr)          |                      17 |
-| Git e GitHub                                 |                      16 |
-| Relatórios com o pacote RMarkdown            |                      16 |
-| Mapas com R e geom_sf()                      |                      15 |
-| Modelagem Supervisionada (pacote tidymodels) |                      14 |
-| Tratamento de erros (pacote purrr)           |                      13 |
-| Criação funções                              |                      12 |
-| Arrumação de dados (pacote tidyr)            |                      11 |
-| Iteração (pacote purrr)                      |                      11 |
-| Web Scraping                                 |                      11 |
-| Acessando APIs                               |                      10 |
-| GitHub Actions                               |                       8 |
-| Apresentações com o pacote xaringan          |                       7 |
-| Criação de pacotes                           |                       7 |
-| Introdução ao R                              |                       7 |
-| Modelagem de textos (NLP)                    |                       7 |
+| Visualização de dados (pacote ggplot2)       |                      27 |
+| Dashboards com Shiny                         |                      26 |
+| Séries temporais                             |                      26 |
+| Git e GitHub                                 |                      25 |
+| Manipulação de dados (pacote dplyr)          |                      24 |
+| Relatórios com o pacote RMarkdown            |                      23 |
+| Mapas com R e geom_sf()                      |                      22 |
+| Modelagem Supervisionada (pacote tidymodels) |                      20 |
+| Arrumação de dados (pacote tidyr)            |                      18 |
+| Tratamento de erros (pacote purrr)           |                      18 |
+| Criação funções                              |                      17 |
+| Web Scraping                                 |                      16 |
+| Introdução ao R                              |                      15 |
+| Iteração (pacote purrr)                      |                      14 |
+| Acessando APIs                               |                      11 |
+| Análise descritiva de textos                 |                      11 |
+| Modelagem de textos (NLP)                    |                      11 |
+| Apresentações com o pacote xaringan          |                      10 |
+| Criação de pacotes                           |                      10 |
+| GitHub Actions                               |                       9 |
 | Processamento paralelo (pacote furrr)        |                       7 |
-| Análise descritiva de textos                 |                       6 |
-| Pacote data.table                            |                       4 |
-| Testes unitários (pacote testthat)           |                       2 |
+| Pacote data.table                            |                       6 |
+| Testes unitários (pacote testthat)           |                       3 |
+| Dataprep com o pacote recipes                |                       2 |
 | Ciclo de Vida de Modelos no R                |                       1 |
-| Dataprep com o pacote recipes                |                       1 |
 | Funções estatísticas                         |                       1 |
 | Grafos e Análise de redes sociais            |                       1 |
 | Interpretabilidade de modelos                |                       1 |
@@ -138,11 +137,11 @@ respostas |>
 
 | Atividade                                                                        | Quantidade de respostas |
 |:---------------------------------------------------------------------------------|------------------------:|
-| Workshop (atividade que tem conteúdo expositivo e conteúdo prático)              |                      31 |
-| Apresentação focada em como usar um pacote                                       |                      25 |
-| Apresentação (com conteúdo expositivo)                                           |                      20 |
-| Evento com mais de uma apresentação curta do mesmo tema                          |                       6 |
-| Mesa redonda (conversa sobre algum tema com pessoas convidadas)                  |                       5 |
+| Workshop (atividade que tem conteúdo expositivo e conteúdo prático)              |                      48 |
+| Apresentação focada em como usar um pacote                                       |                      39 |
+| Apresentação (com conteúdo expositivo)                                           |                      28 |
+| Evento com mais de uma apresentação curta do mesmo tema                          |                      10 |
+| Mesa redonda (conversa sobre algum tema com pessoas convidadas)                  |                       8 |
 | Evento mensal com uma convidada de fora para falar sobre algum tema relacionado. |                       1 |
 
 ## Dia/horário de preferência
@@ -173,10 +172,10 @@ respostas |>
 
 | Dia e horário            | Quantidade de respostas |
 |:-------------------------|------------------------:|
-| Durante a semana - noite |                      27 |
-| Sábado - manhã           |                      20 |
-| Sábado - tarde           |                      16 |
-| Domingo - manhã          |                      11 |
-| Domingo - tarde          |                       9 |
-| Domingo - noite          |                       7 |
-| Sábado - noite           |                       6 |
+| Durante a semana - noite |                      42 |
+| Sábado - manhã           |                      27 |
+| Sábado - tarde           |                      23 |
+| Domingo - manhã          |                      16 |
+| Domingo - tarde          |                      15 |
+| Sábado - noite           |                      10 |
+| Domingo - noite          |                       9 |

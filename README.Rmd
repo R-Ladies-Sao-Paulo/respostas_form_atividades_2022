@@ -97,7 +97,6 @@ respostas |>
 ```
 
 
-
 ## Dia/horário de preferência
 
 ```{r}
